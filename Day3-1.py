@@ -34,7 +34,9 @@ for x in wire2:
             w2coord['x_axis']-=1
         elif direction == 'R':
             w2coord['x_axis']+=1
-        if [w2coord['x_axis'], w2coord['y_axis']] in wire1path:
-            commonpoints.append([w2coord['x_axis'], w2coord['y_axis']])
+        wire2path.append([w2coord['x_axis'], w2coord['y_axis']])
+for x in wire2path:
+    if x in wire1path:
+        commonpoints.append([w2coord['x_axis'], w2coord['y_axis']])
 manhattan = [abs(distance[0])+abs(distance[1]) for distance in commonpoints]
 print(min(manhattan))
